@@ -1,10 +1,14 @@
-const app = require('express')();
-const http = require('http').createServer(app);
+const app = require('express')(); //Initializes app
+const http = require('http').createServer(app); //Creates http server with app
 
+
+//Handles requests at server homepage
 app.get('/', (req, res) => {
-    res.send('<h1> Hello World! </h1>');
+    res.sendFile(__dirname + '/index.html');
 });
 
+
+//Port used by the server.
 http.listen(3000, () => {
     console.log('Listening on *:3000');
 });
